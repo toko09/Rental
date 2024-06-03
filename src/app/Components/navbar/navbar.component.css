@@ -1,0 +1,15 @@
+nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(49, 49, 220);
+    padding: 20px;
+}
+.linksDiv{
+    display: flex;
+    gap: 40px;
+    
+}
+.link:hover{
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
