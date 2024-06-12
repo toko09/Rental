@@ -16,13 +16,14 @@ export class RegisterComponent implements OnInit{
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       'username': new FormControl('', [Validators.required]),
-      'password': new FormControl('', [Validators.required])
+      'password': new FormControl('', [Validators.required]),
     })
   }
 
   onSubmit() {
     console.log('submit from register.ts')
-    this.authService.registerUser(this.signupForm.value.username, this.signupForm.value.password);
+    this.authService.registerUser(
+      this.signupForm.value.username, this.signupForm.value.password);
   }
 
 }

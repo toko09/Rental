@@ -2,7 +2,20 @@
     <h1 (click)="swapPages('')" class="title link">Rental Tbilisi</h1>
     <div class="linksDiv">
 
-        <h3 class="link" (click)="swapPages('login')">Login</h3>
-        <h3 class="link" (click)="swapPages('register')">Register</h3>
+        <ng-container *ngIf="!(userInfo$ | async) as info" >
+            <h3 class="link" (click)="swapPages('login')">Login</h3>
+            <h3 class="link" (click)="swapPages('register')">Register</h3>
+        </ng-container>
+        <ng-container *ngIf=" userInfo$ | async as info">
+
+            <h3 class="link" >Welcome {{info}}</h3>
+            <h3 class="link" (click)="swapPages('register')">Log out</h3>
+        </ng-container>
+
+        <!-- <div *ngIf="AllProducts$ | async as all" class="productsMain">
+            <app-card-product  *ngFor="let wine of all" [cardData]="wine"></app-card-product>
+        </div> -->
+        
+        
     </div>
 </nav>

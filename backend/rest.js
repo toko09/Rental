@@ -78,6 +78,7 @@ app.post('/login', (req,res) => {
 
         const token = jwt.sign({username: userFound.username, userId: userFound._id}, "secret_string", {expiresIn:"1h"})
         return res.status(200).json({
+            username: userFound.username,
             token: token,
             expiresIn: 3600
         })
@@ -88,5 +89,6 @@ app.post('/login', (req,res) => {
         })
     })
 })
+
 
 module.exports = app;
